@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block login %}
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-lg-4">
+        <form class="" method="post" action="/accounts/login/">{% csrf_token %}
+            <input type="text" name="username" placeholder="username" />
+            <input type="password" name="password" placeholder="password"/>
+            <br/>
+            <input type="submit" class="btn btn-info" value="登录" />
+            <span style="color: red">
+                {{ login_err }}
+            </span>
+
+        </form>
+    </div>
+</div>
+{% endblock %}

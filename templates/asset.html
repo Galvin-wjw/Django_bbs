@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block left_sidebar %}
+
+
+<div>
+    fdfd
+</div>
+
+{% endblock %}
+
+{% block right_content %}
+ASSET:<br/>
+
+    {{ request.user.userprofile.hosts.select_related }}
+    {% for group in request.user.userprofile.hosts.select_related %}
+        <li>{{ group.name }}</li>
+
+        <ul>
+        {% for host in group.host_set.select_related %}
+            <li>
+            {{ host.hostname }} --> {{ host.ip_addr }} -->{{ host.idc.name }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}
